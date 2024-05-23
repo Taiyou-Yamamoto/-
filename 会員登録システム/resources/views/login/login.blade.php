@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>会員登録</h1>
+    <div class="container">
+        <h1>会員登録</h1>
+        
+        <form action="login.php" method="post">
+            <input type="text" placeholder="名前"><br>
+            <input type="text" placeholder="電話番号"><br>
+            <input type="password" placeholder="メールアドレス"><br>
+            <button type=submit>登録</button>
+        </form>
+    </div>
+
 </body>
 </html>
