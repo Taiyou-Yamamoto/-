@@ -8,5 +8,12 @@ use App\Models\Member;
 
 class MemberController extends Controller
 {
-    //
+    /**
+     * ログイン画面表示
+     */
+
+    public function index()
+    {
+        return view('login.login');
+    }
 }
