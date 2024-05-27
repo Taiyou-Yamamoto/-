@@ -8,10 +8,10 @@
 </head>
 <body>
     <!-- 登録ボタン-->
-    <header><a href={{ u('login')}}>>>登録</a></header>
+    <header><a href={{ url('login')}}>>>登録</a></header>
     
     <!-- テーブル　-->
-    <div class=table-container>
+    <div class="table-container">
         <table>
             <thead>
                 <tr>
@@ -22,16 +22,26 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $user)
+                @foreach ($members as $member)
                 <tr>
                     <!--名前-->
                     <td>
-                        <div>{{ $user->name }}</div>
+                        <div>{{ $member->name }}</div>
                     </td>
                     <!--電話番号-->
-
+                    <td>
+                        <div>{{ $member->tel }}</div>
+                    </td>
                     <!--メールアドレス-->
+                    <td>
+                        <div>{{ $member->email }}</div>
+                    </td>
+                    <!--編集リンク-->
+                    <td>
+                        <a href={{ url('edit/'.$member->id)}}>>>編集</a>
+                    </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

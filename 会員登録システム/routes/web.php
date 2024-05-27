@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\MemberController::class, 'home_index'])->name('home');
 Route::get('/login', [App\Http\Controllers\MemberController::class, 'login_index'])->name('login');
 Route::post('/member', [App\Http\Controllers\MemberController::class, 'store'])->name('member');
+Route::get('/edit/{id}',[App\Http\Controllers\MemberController::class, 'edit_index'])->name('edit');
+

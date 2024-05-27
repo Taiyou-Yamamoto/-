@@ -14,9 +14,9 @@ class MemberController extends Controller
 
     public function home_index()
     {
-        $users = Member::orderBy('created_at', 'asc')->get();
+        $members = Member::orderBy('created_at', 'asc')->get();
         return view('home',[
-            'users' => $users,
+            'members' => $members,
         ]);
     }
     /**
@@ -47,5 +47,15 @@ class MemberController extends Controller
 
         return redirect('/login');
     }
-    
+
+    /**
+     * ログイン画面表示
+     */
+    public function edit_index($id)
+    {
+        $member = Member::findOrFail($id);
+        return view('edit.edit',[
+            'member' => $member,
+        ]);
+    }
 }
