@@ -50,6 +50,9 @@ class MemberController extends Controller
 
     /**
      * ログイン画面表示
+     * 
+     * @param $is
+     * @return Response
      */
     public function edit_index($id)
     {
@@ -57,5 +60,39 @@ class MemberController extends Controller
         return view('edit.edit',[
             'member' => $member,
         ]);
+    }
+
+    /**
+     * 編集
+     * @param Request
+     * @return Response
+     */
+    public function update(Request $request, $id)
+    {
+        $member = Member::findOrFail($id);
+        $validated = $request->validate([
+            'name' => 'required',
+            'tel' => 'required',
+            'email' => 'required|email',
+        ]); 
+
+        $member->update($validated);
+
+        return redirect('/home');
+    }
+
+
+    /**
+     * 削除
+     * @param Request
+     * @return Response
+     */
+    public function destroy($id)
+    {
+
+        $member = Member::findOrFail($id);
+        $member->delete();
+        
+        return redirect('/home');
     }
 }
